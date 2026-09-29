@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our FLL team</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background: #f8f9fb;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: linear-gradient(180deg, #C0262B 0%, #1f2120 150%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        header p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== NAV ===== */
+        nav {
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        nav a {
+            display: block;
+            padding: 18px 20px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+        nav a:hover {
+            color: #0066cc;
+            border-bottom-color: #00a651;
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 70px 25px;
+        }
+        section h2 {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            color: #0066cc;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        section h2::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 32px;
+            background: linear-gradient(180deg, #0066cc, #00a651);
+            border-radius: 4px;
+        }
+        section .subtitle {
+            color: #666;
+            margin-bottom: 35px;
+            font-size: 1.05rem;
+        }
+
+        /* карточки */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 28px 24px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid #0066cc;
+        }
+        .card:nth-child(2) { border-top-color: #00a651; }
+        .card:nth-child(3) { border-top-color: #ffc107; }
+        .card:nth-child(4) { border-top-color: #e53935; }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+        }
+        .card h3 {
+            color: #222;
+            margin-bottom: 10px;
+            font-size: 1.15rem;
+        }
+        .card p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+        .card .emoji {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Таймлайн */
+        .timeline {
+            position: relative;
+            padding-left: 35px;
+        }
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #0066cc, #00a651);
+            border-radius: 2px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            background: #fff;
+            padding: 20px 24px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+        }
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -31px;
+            top: 24px;
+            width: 16px;
+            height: 16px;
+            background: #00a651;
+            border: 3px solid #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 0 2px #00a651;
+        }
+        .timeline-item h4 {
+            color: #0066cc;
+            margin-bottom: 6px;
+        }
+        .timeline-item .date {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        /* Достижения */
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .achievement {
+            background: linear-gradient(135deg, #0066cc, #00a651);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 14px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .achievement:hover { transform: scale(1.04); }
+        .achievement .num {
+            font-size: 2.4rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* Контакты */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        .contact-item {
+            background: #fff;
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+            text-decoration: none;
+            color: #222;
+            transition: all 0.3s;
+        }
+        .contact-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 24px rgba(0,102,204,0.15);
+        }
+        .contact-item .icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .contact-item strong {
+            display: block;
+            margin-bottom: 4px;
+            color: #0066cc;
+        }
+        .contact-item span {
+            color: #555;
+            font-size: 0.9rem;
+            word-break: break-word;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: #ccc;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            nav a { padding: 12px 14px; font-size: 0.9rem; }
+            section { padding: 50px 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Shanyraq</h1>
+    <p>FIRST LEGO League team · Season 2026</p>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#about">Кто мы</a></li>
+        <li><a href="#goals">Цели</a></li>
+        <li><a href="#journey">Наш путь</a></li>
+        <li><a href="#achievements">Достижения</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+    </ul>
+</nav>
+
+<!-- ===== 1. КТО МЫ ===== -->
+<section id="about">
+    <h2>Who are we</h2>
+    <p class="subtitle">Our team information</p>
+    <div class="cards">
+        <div class="card">
+            <span class="emoji">👥</span>
+            <h3>Team members</h3>
+            <p>Нас [N] человек — школьники [класс/возраст]. Мы объединены любовью к робототехнике, программированию и решению реальных задач.</p>
+        </div>
+        <div class="card">
+            <span class="emoji">🏫</span>
+            <h3>Where we train</h3>
+            <p>Aqtobe Robotics. Здесь мы собираемся каждую неделю, чтобы работать над проектом.</p>
+        </div>
+        <div class="card">
+            <span class="emoji">🎯</span>
+            <h3>Our coach</h3>
+            <p>[Имя тренера] — помогает нам ставить цели, разбираться в инженерии и не сдаваться, когда что-то не работает.</p>
+        </div>
+        <div class="card">
+            <span class="emoji">🧩</span>
+            <h3>What we do</h3>
+            <p>Конструируем и программируем робота на LEGO SPIKE, исследуем тему сезона и создаём инновационный проект.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 2. ЦЕЛИ ===== -->
+<section id="goals">
+    <h2>Our goals for this year</h2>
+    <p class="subtitle">Сезон 2026-2027 · Тема: BIOGLOW</p>
+    <div class="cards">
+        <div class="card">
+            <span class="emoji">🥇</span>
+            <h3>Спортивная цель</h3>
+            <p>Стабильно набирать максимум очков в Robot Game и попасть в топ на региональном этапе.</p>
+        </div>
+        <div class="card">
+            <span class="emoji">💡</span>
+            <h3>Инновационный проект</h3>
+            <p>Разработать решение по теме сезона, которое реально поможет людям — и представить его судьям.</p>
+        </div>
+        <div class="card">
+            <span class="emoji">🤝</span>
+            <h3>FLL Core Values</h3>
+            <p>Работать как одна команда: помогать друг другу, уважать соперников, получать удовольствие от процесса.</p>
+        </div>
+        <div class="card">
+            <span class="emoji">🌱</span>
+            <h3>Развитие</h3>
+            <p>Каждому научиться чему-то новому: программированию, дизайну, публичным выступлениям.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 3. ЧЕРЕЗ ЧТО ПРОШЛИ ===== -->
+<section id="journey">
+    <h2>Через что мы прошли</h2>
+    <p class="subtitle">Наш путь от идеи до сегодняшнего дня</p>
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="date">[Месяц, год]</div>
+            <h4>Собрали команду</h4>
+            <p>Познакомились, распределили роли, определили, кто за что отвечает.</p>
+        </div>
+        <div class="timeline-item">
+            <div class="date">[Месяц, год]</div>
+            <h4>Первый робот и первые провалы</h4>
+            <p>Собрали первую версию робота, которая… разваливалась на первом же запуске. Учились на ошибках.</p>
+        </div>
+        <div class="timeline-item">
+            <div class="date">[Месяц, год]</div>
+            <h4>Исследование и проект</h4>
+            <p>Провели интервью с экспертами, изучили тему сезона и придумали своё решение.</p>
+        </div>
+        <div class="timeline-item">
+            <div class="date">[Месяц, год]</div>
+            <h4>Первое соревнование</h4>
+            <p>Волновались, но выступили достойно. Получили обратную связь от судей и мотивацию расти дальше.</p>
+        </div>
+        <div class="timeline-item">
+            <div class="date">[Месяц, год]</div>
+            <h4>Сейчас</h4>
+            <p>Готовимся к [следующее соревнование], дорабатываем робота и проект.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 4. ДОСТИЖЕНИЯ ===== -->
+<section id="achievements">
+    <h2>Чего мы добились</h2>
+    <p class="subtitle">Наши результаты и награды</p>
+    <div class="achievements">
+        <div class="achievement">
+            <span class="num">🏆</span>
+            <strong>[Награда 1]</strong>
+            <p>[Год] · [Название соревнования]</p>
+        </div>
+        <div class="achievement">
+            <span class="num">🥈</span>
+            <strong>[Награда 2]</strong>
+            <p>[Год] · [Название соревнования]</p>
+        </div>
+        <div class="achievement">
+            <span class="num">🎖️</span>
+            <strong>[Награда 3]</strong>
+            <p>[Год] · [Название соревнования]</p>
+        </div>
+        <div class="achievement">
+            <span class="num">⭐</span>
+            <strong>[Особое достижение]</strong>
+            <p>Например: вышли в финал, получили приз зрительских симпатий и т.д.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 5. КОНТАКТЫ ===== -->
+<section id="contacts">
+    <h2>Contact us</h2>
+    <p class="subtitle">We will be glad to cooperate, have questions and support</p>
+    <div class="contact-grid">
+        <a href="mailto:team@example.com" class="contact-item">
+            <span class="icon">✉️</span>
+            <strong>Email</strong>
+            <span>shanyraqteam@proton.me</span>
+        </a>
+        <a href="https://instagram.com/yourteam" class="contact-item" target="_blank">
+            <span class="icon">📸</span>
+            <strong>Instagram</strong>
+            <span>@shanyraq_fll</span>
+        </a>
+        <a href="https://t.me/yourteam" class="contact-item" target="_blank">
+            <span class="icon">💬</span>
+            <strong>Telegram</strong>
+            <span>@ddakkoo</span>
+        </a>
+        <a href="tel:+7XXXXXXXXXX" class="contact-item">
+            <span class="icon">📞</span>
+            <strong>Phone number</strong>
+            <span>+7 705 820 4103</span>
+        </a>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Shanyraq · FIRST LEGO League</p>
+    <p style="margin-top: 8px; opacity: 0.7;">Made with love & LEGO</p>
+</footer>
+
+</body>
+</html>
