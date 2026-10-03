@@ -98,7 +98,7 @@
         }
         nav a:hover, nav a:active {
             color: var(--brand);
-            border-bottom-color: var(--accent);
+            border-bottom-color: var(--brand);
         }
 
         /* секций */
@@ -110,7 +110,7 @@
 
         section h2 {
             font-size: clamp(1.4rem, 4vw, 2.2rem);
-            color: var(--brand);
+            color: var(--text);
             margin-bottom: 12px;
             display: flex;
             align-items: center;
@@ -122,7 +122,7 @@
             flex-shrink: 0;
             width: 6px;
             height: clamp(24px, 4vw, 32px);
-            background: linear-gradient(180deg, var(--brand), var(--accent));
+            background: var(--brand);
             border-radius: 4px;
         }
         section .subtitle {
@@ -177,7 +177,7 @@
             position: absolute;
             left: 8px; top: 0; bottom: 0;
             width: 3px;
-            background: linear-gradient(180deg, var(--brand), var(--accent));
+            background: linear-gradient(0deg, var(--brand), var(--dark));
             border-radius: 2px;
         }
         .timeline-item {
@@ -218,7 +218,7 @@
             gap: 16px;
         }
         .achievement {
-            background: linear-gradient(135deg, var(--brand), var(--accent));
+            background: linear-gradient(180deg, var(--brand) -35%, var(--dark) 50%);
             color: white;
             padding: 26px 18px;
             border-radius: 14px;
@@ -434,7 +434,7 @@
     <div class="achievements">
         <div class="achievement">
             <span class="num">🏆</span>
-            <strong>WRO · 2025 Regional champion</strong>
+            <strong>WRO · Regional champion</strong>
             <p>2025 · Best city and regional winner in World Robotics Olympiad</p>
         </div>
         <div class="achievement">
