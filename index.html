@@ -41,10 +41,11 @@
             text-align: center;
             padding: 60px 20px;
             color: white;
-            /* Фото + затемнение поверх */
             background:
                 linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
                 var(--image) center/cover no-repeat;
+                /* PARALLAX: photo stays fixed while page scrolls */
+                background-attachment: fixed;
         }
 
         header h1 {
