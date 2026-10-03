@@ -11,9 +11,9 @@
             --brand: #B92324;  /* заголовки h2, иконки, верхняя полоска карточек */ 
             --accent: #D5D2D2; /* градиенты, точки таймлайна */
             --dark: #222423;   /* фон подвала (footer) */
-            --text: #B92324;   /* основной цвет текста */
-            --muted: #666;     /* серые подписи под заголовками */
-            --bg: #2F3331;
+            --text: #C1C1C1;   /* основной цвет текста */
+            --muted: #888;     /* серые подписи под заголовками */
+            --bg: #2A2D2D;
             /* путь к фото */
             --image: url("shanyraq.jpg");
         }
@@ -64,7 +64,7 @@
 
         /* навигация */
         nav {
-            background: var(--surface);
+            background: var(--dark);
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             position: sticky;
             top: 0;
@@ -149,7 +149,7 @@
         .card:nth-child(3) { border-top-color: #ffc107; }
         .card:nth-child(4) { border-top-color: #e53935; }
         .card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-8px);
             box-shadow: 0 10px 24px rgba(0,0,0,0.1);
         }
         .card h3 {
@@ -183,7 +183,7 @@
         .timeline-item {
             position: relative;
             margin-bottom: 22px;
-            background: var(--bg);
+            background: var(--dark);
             padding: 18px 20px;
             border-radius: 12px;
             box-shadow: 0 3px 12px rgba(0,0,0,0.4);
@@ -225,7 +225,7 @@
             text-align: center;
             transition: transform 0.25s;
         }
-        .achievement:hover { transform: scale(1.03); }
+        .achievement:hover { transform: scale(1.05); }
         .achievement .num {
             font-size: 2rem;
             font-weight: bold;
@@ -259,7 +259,7 @@
             transition: all 0.25s;
         }
         .contact-item:hover {
-            transform: translateY(-3px);
+            transform: translateY(-8px);
             box-shadow: 0 10px 24px rgba(0,102,204,0.15);
         }
         .contact-item .icon {
@@ -341,7 +341,7 @@
 <!-- кто мы -->
 <section id="about">
     <h2>Who are we</h2>
-    <p class="subtitle">Несколько строк о вашей команде</p>
+    <p class="subtitle">A few lines about our team</p>
     <div class="cards">
         <div class="card">
             <span class="emoji">👥</span>
